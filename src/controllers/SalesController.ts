@@ -13,9 +13,10 @@ class SalesController extends Controller {
   async create(req: Request) {
     try {
       const ip = req.socket.remoteAddress;
-
+      console.log(req.body)
       return success(await SalesService.save({ ...req.body, ip }));
     } catch (error) {
+      console.log(error)
       return errorResponses(error);
     }
   }
